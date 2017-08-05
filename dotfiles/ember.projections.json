@@ -1,0 +1,163 @@
+{
+  "app/adapters/*.js": {
+    "type": "adapter",
+    "alternate": "tests/integration/components/{}-test.js",
+    "template": [
+      "import ApplicationAdapter from './application';",
+      "",
+      "export default ApplicationAdapter.extend({",
+      "});",
+    ]
+  },
+
+  "app/components/*.js": {
+    "type": "component",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Component.extend({",
+      "",
+      "});",
+    ]
+  },
+  "tests/integration/components/*-test.js": {
+    "type": "integrationTests",
+    "alternate": "app/components/{}.js"
+  },
+
+  "app/controllers/*.js": {
+    "type": "controller",
+    "alternate": "tests/unit/controllers/{}-test.js",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Controller.extend({",
+      "",
+      "});",
+    ]
+  },
+  "tests/unit/controllers/*-test.js" : {
+    "alternate": "app/controllers/{}.js"
+  },
+
+  "app/components/*/component.js": {
+    "type": "pcomponent",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Component.extend({",
+      "  classNameBindings: ['componentName'],",
+      "  componentName: Ember.computed(()=> {",
+      "    return this.name",
+      "    .match(/[\w-]+\/\w+$/)[0]",
+      "    .replace('/', '-');",
+      "  }),",
+      "});",
+    ]
+  },
+
+  "app/components/*/template.hbs": {
+    "type": "ptemplate",
+    "template": [
+      "{{yield}}"
+    ]
+  },
+
+  "app/helpers/*.js": {
+    "type": "helper",
+    "alternate": "tests/unit/helpers/{}-test.js",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export function testing(params/*, hash*/) {",
+      "  return params;",
+      "}",
+      "",
+      "export default Ember.HTMLBars.makeBoundHelper(testing);",
+    ]
+  },
+  "tests/unit/helpers/*-test.js" : {
+    "alternate": "app/helpers/{}.js"
+  },
+
+  "app/models/*.js": {
+    "type": "model",
+    "alternate": "tests/unit/models/{}-test.js",
+    "template": [
+      "import DS from 'ember-data';",
+      "",
+      "export default DS.Model.extend({",
+      "",
+      "});",
+    ]
+  },
+  "tests/unit/models/*-test.js" : {
+    "alternate": "app/models/{}.js"
+  },
+
+
+
+  "app/routes/*.js": {
+    "type": "route",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Route.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/services/*.js": {
+    "type": "services",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Service.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/styles/*.sass": {
+    "type": "style",
+    "template": [
+      "/* {}.sass */",
+    "",
+    ]
+  },
+
+  "app/utils/*.js": {
+    "type": "util",
+    "alternate": "tests/unit/utils/{}-test.js",
+    "template": [
+      "export default function {}() {",
+    "  return true;",
+    "}",
+    ]
+  },
+  "tests/unit/utils/*-test.js" : {
+    "alternate": "app/utils/{}.js"
+  },
+
+  "app/mixins/*.js": {
+    "type": "mixin",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Mixin.create({",
+      "});",
+    ]
+  },
+
+  "app/app.js":            { "type":"app",},
+  "app/index.html":        { "type":"index", },
+  "app/router.js":         { "type": "paths" },
+  "app/templates/*.hbs":   { "type": "template" },
+  "bower.json":            { "type":"bower", },
+  "config/environment.js": { "type":"environment", },
+  "ember-cli-build.json":  { "type":"build", },
+  "package.json":          { "type": "package", },
+  "tests/*.js":            { "type": "test" },
+  "tests/acceptance/*.js": { "type": "acceptance" },
+}

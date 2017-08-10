@@ -33,6 +33,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
+set undodir=$HOME/.VIM_UNDO_FILES
+
 set wrap linebreak nolist
 
 iabbrev epry require IEx; IEx.pry

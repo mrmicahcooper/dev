@@ -1,6 +1,6 @@
 defmodule Mix.Tasks.Dev.Install do
- require Logger
   use Mix.Task
+  require Logger
 
   @home System.user_home()
 

@@ -7,6 +7,10 @@ defmodule Mix.Tasks.Dev.Vim do
     Install and update all vim plugins specified in ~/.vimbundle
   """
 
+  @moduledoc """
+    Install and update all vim plugins specified in ~/.vimbundle
+  """
+
   @vim_bundle "#{System.user_home()}/.vim/bundle"
 
   def run(_args) do

@@ -3,15 +3,13 @@ if [ -f '/usr/local/etc/bash_completion.d/git-completion.bash' ]; then
 fi
 
 source ~/.git-prompt.sh
-export PS1='\[\033[01;36m\]\W\[\033[01;32m\]$(__git_ps1 "[%s]")\[\033[01;36m\]⚙ '
+export PS1='\[\033[01;36m\]\W\[\033[01;32m\]$(__git_ps1 "[%s]")\[\033[01;36m\]• '
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export LESS="FRX"
-export RI="--format ansi -T"
-export PSQL_EDITOR='vim -c"setf sql"'
-export CLICOLOR=1
-export LSCOLORS=gxgxcxdxbxegedabagacad
+export RI="--format ansi -T" export PSQL_EDITOR='vim -c"setf sql"' export CLICOLOR=1 export LSCOLORS=gxgxcxdxbxegedabagacad
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 export HISTIGNORE="%*"
 export HISTSIZE=10000
@@ -55,3 +53,6 @@ alias vi='vim'
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

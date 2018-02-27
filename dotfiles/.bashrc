@@ -3,17 +3,22 @@ if [ -f '/usr/local/etc/bash_completion.d/git-completion.bash' ]; then
 fi
 
 source ~/.git-prompt.sh
-export PS1='\[\033[01;36m\]\W\[\033[01;32m\]$(__git_ps1 "[%s]")\[\033[01;36m\]• '
+# export PS1='\[\033[01;36m\]\W\[\033[01;32m\]$(__git_ps1 "[%s]")\[\033[01;36m\]• '
+export PS1="\[\033[01;36m\]\W\[\033[95m\]\$(__git_ps1 '[%s]')\[\033[01;94m\]⇉ \[\033[01;00m\]"
 
-export VISUAL=vim
+# eval "$(hub alias -s)"
+
+export CLICOLOR=1
 export EDITOR="$VISUAL"
-export LESS="FRX"
-export RI="--format ansi -T" export PSQL_EDITOR='vim -c"setf sql"' export CLICOLOR=1 export LSCOLORS=gxgxcxdxbxegedabagacad
 export ERL_AFLAGS="-kernel shell_history enabled"
-
+export HISTCONTROL=erasedups
 export HISTIGNORE="%*"
 export HISTSIZE=10000
-export HISTCONTROL=erasedups
+export LESS="FRX"
+export LSCOLORS=gxgxcxdxbxegedabagacad
+export PSQL_EDITOR='vim -c"setf sql"'
+export RI="--format ansi -T"
+export VISUAL=vim
 
 shopt -s histappend
 
@@ -49,10 +54,82 @@ alias redisstart='sudo /etc/init.d/redis_6379 start'
 alias redisstop='sudo /etc/init.d/redis_6379 stop'
 alias reset-authors='git commit --amend --reset-author -C HEAD'
 alias vi='vim'
+alias longtest="./node_modules/.bin/lab --lint"
+alias longtest="./node_modules/.bin/lab --lint"
+
+
+
+function grm () {
+  echo "git rebase master"
+  command git rebase master
+}
+
+function gwip () {
+  echo "git commit -a -m wip"
+  command git commit -a -m wip
+}
+
+function gush () {
+  echo "git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease"
+  git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease
+}
+
+gri() {
+  echo "git rebase -i HEAD~$1"
+  command git rebase -i HEAD~$1
+}
+
+function gmpr () {
+  echo "git checkout master && git pull --rebase origin master"
+  git checkout master && git pull --rebase origin master
+}
+
+flint() {
+  echo "./node_modules/.bin/eslint --fix $1"
+  command ./node_modules/.bin/eslint --fix $1
+}
+
+tember() {
+  echo "ember test --server --filter=\"$1\""
+  command ember test --server --filter="$1"
+}
+
+
+function grm () {
+  echo "git rebase master"
+  command git rebase master
+}
+
+function gwip () {
+  echo "git commit -a -m wip"
+  command git commit -a -m wip
+}
+
+function gush () {
+  echo "git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease"
+  git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease
+}
+
+gri() {
+  echo "git rebase -i HEAD~$1"
+  command git rebase -i HEAD~$1
+}
+
+function gmpr () {
+  echo "git checkout master && git pull --rebase origin master"
+  git checkout master && git pull --rebase origin master
+}
+
+flint() {
+  echo "./node_modules/.bin/eslint --fix $1"
+  command ./node_modules/.bin/eslint --fix $1
+}
+
+tember() {
+  echo "ember test --server --filter=\"$1\""
+  command ember test --server --filter="$1"
+}
+
+source ~/.profile
 
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-
-[ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

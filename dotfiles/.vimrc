@@ -21,7 +21,7 @@ set cursorline
 set directory^=$HOME/.vim/tmp//
 set expandtab
 " set guifont=Monaco:h16
-set guifont=PT\ Mono:h13
+set guifont=Fira\ Mono:h13
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 set hidden
 set nobackup

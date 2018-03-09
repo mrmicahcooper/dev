@@ -132,4 +132,6 @@ tember() {
 
 source ~/.profile
 
+[ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi

@@ -15,12 +15,12 @@ filetype plugin indent on
 
 colorscheme solarized
 
-set background=light
+" set background=light
+set background=dark
 set colorcolumn=80
 set cursorline
 set directory^=$HOME/.vim/tmp//
 set expandtab
-" set guifont=Monaco:h16
 set guifont=Fira\ Mono:h13
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 set hidden
